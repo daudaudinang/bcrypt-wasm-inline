@@ -1,0 +1,42 @@
+{
+  "name": "bcrypt-wasm-inline",
+  "version": "1.0.1",
+  "description": "bcrypt-wasm-inline is a WebAssembly (WASM) binding for the popular bcrypt hashing algorithm, designed to be used directly in JavaScript applications. This package provides both synchronous and asynchronous methods for hashing passwords and verifying password hashes.\n",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/raw/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    },
+    "./raw": {
+      "types": "./dist/raw/index.d.ts",
+      "import": "./dist/raw/esm/index.js",
+      "default": "./dist/raw/esm/index.js"
+    }
+  },
+  "types": "./dist/raw/index.d.ts",
+  "files": [
+    "dist",
+    "Readme.md"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "make build && npm run build-inline",
+    "build-nodejs": "make build-nodejs",
+    "clean": "make clean",
+    "build-inline": "npm run build-nodejs-inline",
+    "build-nodejs-inline": "rollup -c rollup.config.node.js"
+  },
+  "keywords": [],
+  "author": "huynq",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-wasm": "^6.2.2",
+    "rollup": "^4.28.0"
+  }
+}
