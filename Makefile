@@ -1,6 +1,7 @@
 .PHONY: buildw-nodejs buildw-web clean skip-gitignore build
 
 build: clean build-nodejs
+	cp ./wrapper/* ./dist/
 
 build-nodejs:
 	rm -rf ./dist/raw
